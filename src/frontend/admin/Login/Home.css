@@ -1,0 +1,95 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.main{
+    min-height: 100vh;
+    min-width: 100vw;
+    background-color: black;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    
+    /* justify-content: ; */
+}
+
+.logoimg{
+    width: 90vw;
+    height: 100px;
+    text-align: center;
+    /* background-color: wheat; */
+}
+
+.head{
+    width: 90vw;
+    height: 100px;
+    margin-top: 20px;
+    /* background-color: red; */
+    color: white;
+    font-family: 'MONSERRATE';
+    font-size: 60px;
+    text-align: center;
+}
+.accessdiv{
+    width: 60vw;
+    height: 160px;
+    margin-left: 200px;
+    margin-top: 100px;
+    left: 50%;
+    /* background-color: aliceblue; */
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    transition: all cubic-bezier(0.19, 1, 0.22, 1) 2s;
+}
+
+
+
+.accessdiv :hover{
+    transform: scale(1.2);
+}
+
+.ac{
+    width: 15vw;
+    height: 150px;
+    background-color: white;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all cubic-bezier(0.19, 1, 0.22, 1) 2s;
+}
+
+
+.ac h4{
+    background-color: rgba(15, 14, 14, 0.753);
+    color: aliceblue;
+    text-align: center;
+    width: 100%;
+}
+
+#user{
+    background-image: url(https://ps.w.org/simple-user-avatar/assets/icon-256x256.png?rev=2413146);
+    background-position: center;
+    background-size: cover;
+}
+
+#child{
+    
+    background-image: url(https://media.tatler.com/photos/6141ed7b8586e8b85b4e8b10/3:4/w_1278,h_1704,c_limit/unicorn-tatler-13jan17-istock_b.jpg);
+    background-position: center;
+    background-size: cover;
+    
+}
+
+#admin{
+    
+    background-image: url(https://st.depositphotos.com/2704315/3185/v/600/depositphotos_31854223-stock-illustration-vector-user-profile-avatar-man.jpg);
+    background-position: center;
+    background-size: cover;
+    
+}
+
+
