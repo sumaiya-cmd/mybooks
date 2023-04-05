@@ -13,13 +13,14 @@ export default function Category(props) {
     filename: "/images/Bookflix.png",
     bytes: "",
   });
-  var [Name, setName] = useState("");
-  var [Email, setEmail] = useState("");
-  var [Password, setPassword] = useState("");
-  var [Cpass, setCpass] = useState("");
-  var [Dob, setDob] = useState("");
-  var [MobileNo, setMobileNo] = useState("");
-  var [Role, setRole] = useState("");
+  var [ID, setName] = useState("");
+  var [Title, setEmail] = useState("");
+  var [Author, setPassword] = useState("");
+  var [Price, setCpass] = useState("");
+  var [Genre, setDob] = useState("");
+  var [Language, setMobileNo] = useState("");
+  var [Url, setRole] = useState("");
+  var [Description, setRole] = useState("");
 
   const handlePicture = (event) => {
     setIcon({
@@ -53,7 +54,7 @@ export default function Category(props) {
     setIcon({ filename: "/assets/defaultcar.png", bytes: "" });
   };
   const handleShowCategoryList = () => {
-    navigate("/dashboard/listadmin");
+    navigate("/dashboard/listbook");
   };
 
   return (
@@ -64,68 +65,111 @@ export default function Category(props) {
             <div className={classes.center} style={{ color:"white", fontSize:'24pt', padding:"0%",textTransform:"uppercase" }}>
               <ListAltIcon style={{cursor:'pointer',marginTop:"10px"}} onClick={handleShowCategoryList} />
 
-              <div style={{ marginLeft: 25}}>Admin</div>
+              <div style={{ marginLeft: 25}}>Book</div>
             </div>
           </Grid>
           <Grid item xs={12}>
             <TextField style={{ backgroundColor:"white"}}
-            id="outlined-error"
+            variant="filled"
+            color="error"
             size="small"
               onChange={(event) => setName(event.target.value)}
-              label="Name"
+              label="ID"
               fullWidth
             />
           </Grid>
           <Grid item style={{marginTop:"0"}} xs={12}>
             <TextField style={{ backgroundColor:"white" }}
-            id="outlined-error"
+            color="error"
+            variant="filled"
             size="small"
               onChange={(event) => setEmail(event.target.value)}
-              label="Email"
+              label="Title"
+              fullWidth
+            />
+          </Grid>
+          <Grid item style={{marginTop:"0"}} xs={6}>
+            <TextField style={{ backgroundColor:"white" }}
+            id="outlined-error"
+            color="error"
+            variant="filled"
+            size="small"
+            onChange={(event) => setCpass(event.target.value)}
+              label="Author"
+              fullWidth
+            />
+          </Grid>
+          <Grid item style={{marginTop:"0"}} xs={6}>
+            <TextField style={{ backgroundColor:"white" }}
+            id="outlined-error"
+            variant="filled"
+            color="error"
+            size="small"
+            onChange={(event) => setDob(event.target.value)}
+              label="Price"
               fullWidth
             />
           </Grid>
           <Grid item xs={12}>
             <TextField style={{ backgroundColor:"white" }}
             id="outlined-error"
+            color="error"
+
+            variant="filled"
             size="small"
             onChange={(event) => setPassword(event.target.value)}
-              label="Password"
-              fullWidth
-            />
-          </Grid>
-          <Grid item style={{marginTop:"0"}} xs={12}>
-            <TextField style={{ backgroundColor:"white" }}
-            id="outlined-error"
-            size="small"
-            onChange={(event) => setCpass(event.target.value)}
-              label="Confirm Password"
-              fullWidth
-            />
-          </Grid>
-          <Grid item style={{marginTop:"0"}} xs={12}>
-            <TextField style={{ backgroundColor:"white" }}
-            id="outlined-error"
-            size="small"
-            onChange={(event) => setDob(event.target.value)}
-              label="Date of Birth"
+              label="Genre"
               fullWidth
             />
           </Grid>
           <Grid item xs={12}>
             <TextField style={{ backgroundColor:"white"}}
             id="outlined-error"
+            variant="filled"
             size="small"
+            color="error"
+
             onChange={(event) => setMobileNo(event.target.value)}
-              label="Contact"
+              label="Language"
               fullWidth
             />
           </Grid>
-          {/* <Grid item sx={{padding:"5%"}} xs={8}>
-            <Button fullWidth variant="outlined" sx={{padding:"3%"}} component="label">
+          <Grid item xs={12}>
+            <TextField style={{ backgroundColor:"white"}}
+            id="outlined-error"
+            color="error"
+            variant="filled"
+            size="small"
+            onChange={(event) => setMobileNo(event.target.value)}
+              label="URL"
+              fullWidth
+            />
+          </Grid>
+          <Grid item xs={12}>
+            <TextField style={{ backgroundColor:"white"}}
+            variant="filled"
+            color="error"
+            size="small"
+            onChange={(event) => setMobileNo(event.target.value)}
+              label="Description"
+              fullWidth
+            />
+          </Grid>
+          <Grid item xs={12}>
+            {/* <TextField style={{ backgroundColor:"white"}}
+            id="outlined-error"
+            size="small"
+            onChange={(event) => setMobileNo(event.target.value)}
+              label="Language"
+              fullWidth
+            /> */}
+          </Grid>
+          <Grid item sx={{padding:"5%"}} xs={8}>
+            <Button fullWidth variant="outlined" color="error" sx={{padding:"3%"}} component="label">
               Upload
               <input
                 hidden
+                error
                 accept="image/*"
                 multiple
                 type="file"
@@ -141,7 +185,7 @@ export default function Category(props) {
               variant="rounded"
               sx={{ width: 180, height: 56 }}
             />
-          </Grid> */}
+          </Grid>
           <Grid item xs={6}>
             <Button onClick={handleSubmit} variant="contained" color="error" fullWidth>
               Submit

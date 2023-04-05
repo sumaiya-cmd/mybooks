@@ -5,7 +5,6 @@ export const useStyles=makeStyles({
     
       box:{
         width:'90%',
-        
         padding:10,
         borderRadius:10,
         marginTop:'5%',
@@ -15,13 +14,14 @@ export const useStyles=makeStyles({
 
       dialogContainer:{
         display:'flex',
-        width:'80%',
+        width:'100%',
         height:'100%',
-        paddingLeft:'20%'
+        padding:'8%',
+        paddingTop:'3%'
       },
       dialogBox:{
-        width:'60%',
-        height:540,
+        width:'100%',
+        height:"auto",
         padding:10,
         borderRadius:10,
         background:'#fff'

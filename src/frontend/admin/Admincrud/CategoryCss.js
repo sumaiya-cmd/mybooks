@@ -15,7 +15,7 @@ export const useStyles=makeStyles({
     // marginLeft:"15%",
   },
   box:{
-  width:'50%',
+  width:'55%',
   opacity:'0.8',
   height:"auto",
   backgroundColor:"black",
