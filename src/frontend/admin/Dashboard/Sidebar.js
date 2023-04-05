@@ -14,23 +14,29 @@ export default function SideBar() {
   var navigate=useNavigate()
     return(
   <div>
-  <React.Fragment sx={{backgroundColor:"green"}}>
-    
-    <ListItemButton onClick={()=>navigate('/dashboard/displayallcategory')}>
+    <div>
+  <React.Fragment >
+    <ListItemButton sx={{color:"white"}} onClick={()=>navigate('/dashboard/add_admin')}>
       <ListItemIcon>
-        <ShoppingCartIcon />
+        <ShoppingCartIcon sx={{color:"white"}} />
       </ListItemIcon>
-      <ListItemText primary="Admins" />
+      <ListItemText primary="Admin" />
     </ListItemButton>
-    <ListItemButton onClick={()=>navigate('/dashboard/displayallsubcategory')}>
+    <ListItemButton sx={{color:"white"}} onClick={()=>navigate('/dashboard/listadmin')}>
       <ListItemIcon>
-        <PeopleIcon />
+        <PeopleIcon sx={{color:"white"}} />
       </ListItemIcon>
-      <ListItemText primary="Add Books" />
+      <ListItemText primary="Admin List" />
     </ListItemButton>
-    <ListItemButton  onClick={()=>navigate('/dashboard/displayallcompany')}>
+    <ListItemButton sx={{color:"white"}} onClick={()=>navigate('/dashboard/add_book')}>
       <ListItemIcon>
-        <BarChartIcon />
+        <PeopleIcon sx={{color:"white"}} />
+      </ListItemIcon>
+      <ListItemText primary="Book" />
+    </ListItemButton>
+    <ListItemButton sx={{color:"white"}}  onClick={()=>navigate('/dashboard/listbook')}>
+      <ListItemIcon>
+        <BarChartIcon sx={{color:"white"}} />
       </ListItemIcon>
       <ListItemText primary="Book List" />
     </ListItemButton>
@@ -67,13 +73,12 @@ export default function SideBar() {
       <ListItemText primary="WhyPNP" />
     </ListItemButton> */}
 
-    <ListItemButton>
+    <ListItemButton sx={{color:"white"}}>
       <ListItemIcon>
-        <LayersIcon />
+        <LayersIcon sx={{color:"white"}} />
       </ListItemIcon>
       <ListItemText primary="Logout" />
     </ListItemButton>
- 
   </React.Fragment>
 
 
@@ -85,22 +90,23 @@ export default function SideBar() {
     <ListItemButton>
       <ListItemIcon>
         <AssignmentIcon />
-      </ListItemIcon>
+        </ListItemIcon>
       <ListItemText primary="Current month" />
     </ListItemButton>
     <ListItemButton>
       <ListItemIcon>
-        <AssignmentIcon />
+      <AssignmentIcon />
       </ListItemIcon>
       <ListItemText primary="Last quarter" />
     </ListItemButton>
     <ListItemButton>
-      <ListItemIcon>
+    <ListItemIcon>
         <AssignmentIcon />
       </ListItemIcon>
       <ListItemText primary="Year-end sale" />
     </ListItemButton>
   </React.Fragment> */}
   </div>
+    </div>
     )
 }

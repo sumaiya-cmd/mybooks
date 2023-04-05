@@ -7,8 +7,10 @@ import {Avatar,Grid} from '@mui/material';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import SideBar from './Sidebar';
-// import Category from "../Category/Category"
-// import DisplayAllCategory from "../Category/DisplayAllCategory"
+import Addmin from "../Admincrud/Category"
+import ListAdmin from "../Admincrud/DisplayAllCategory"
+import Book from "../Admincrud/Bookadd"
+import ListBook from "../Admincrud/DisplayAllCategory"
 import { BrowserRouter as Router ,Route,Routes} from 'react-router-dom'
 // import SubCategory from "../SubCategory/SubCategory";
 // import DisplayAllSubCategory from "../SubCategory/DisplayAllSubCategory";
@@ -25,7 +27,7 @@ import { BrowserRouter as Router ,Route,Routes} from 'react-router-dom'
 
 export default function Dashboard() {
   return (
-    <Box sx={{ flexGrow: 1}}>
+    <Box>
       <AppBar position="static" sx={{ backgroundColor:"black" }}>
         <Toolbar>
           <IconButton
@@ -37,16 +39,16 @@ export default function Dashboard() {
             <MenuIcon />
 
           </IconButton>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1,color:"red" }}>
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1,color:"red",fontWeight:"bold" }}>
             Bookflix
           </Typography>
 
-          <Avatar alt="Remy Sharp" src="/B.png" />
+          <Avatar alt="Remy Sharp" src="/images/b3.png" />
         </Toolbar>
       </AppBar>
-      <Grid container spacing={2}>
+      <Grid variant="secondary" sx={{ background:"black"}} container spacing={2}>
         <Grid item xs={12} >
-        <div style={{paddingTop:5,paddingLeft:5,display:'flex',width:200,justifyContent:'center',alignItems:'center'}}>
+        <div style={{paddingTop:10,paddingLeft:15,display:'flex',width:200,justifyContent:'center',alignItems:'center'}}>
           <img src='' style={{width:100}}/>
         </div>
         </Grid>
@@ -55,22 +57,12 @@ export default function Dashboard() {
         </Grid>
         <Grid item xs={10}>
         <Routes>
-        {/* <Route element={<Category/>} path="/category" />
-        <Route element={<DisplayAllCategory/>} path="/displayallcategory" />
-        <Route element={<SubCategory/>} path="/subcategory" />
-        <Route element={<DisplayAllSubCategory/>} path="/displayallsubcategory" />
-        <Route element={<Company/>} path="/company" />
-        <Route element={<DisplayAllCompany/>} path="/displayallcompany" />
-        <Route element={<Model/>} path="/model" />
-        <Route element={<DisplayAllModel/>} path="/displayallmodel" />
-        <Route element={<Vehicle/>} path="/vehicle" />
-        <Route element={<DisplayAllVehicle/>} path="/displayallvehicle" />
-        <Route element={<FeatureInterface/>} path="/featureinterface" />
-        <Route element={<WhypnpInterface/>} path="/whypnpinterface" />
-        <Route element={<DisplayAllOffer/>} path="/displayalloffer" />
-        <Route element={<Offer/>} path="/offer" /> */}
+        <Route element={<Addmin/>} path="/add_admin" />
+        <Route element={<ListAdmin/>} path="/listadmin" />
+        <Route element={<Book/>} path="/add_book" />
+        <Route element={<ListBook/>} path="/listbook" />
  
-  
+ 
         </Routes>
         </Grid>
 
