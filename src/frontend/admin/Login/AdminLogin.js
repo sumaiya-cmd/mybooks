@@ -1,12 +1,56 @@
 import {Image, Col, Row, Form, Button } from "react-bootstrap";
-// import bookflix1 from ""
 import {useNavigate} from "react-router-dom"
+import {useState}from'react' ;
+import {login} from'../../Config/AxiosConfig' ;
 
 function AdminLogin() {
     var navigate=useNavigate();
+
+    const [loginDets, setloginDets] = useState({
+        email:"",
+        password:""
+    })
+
+    const handleChange = e => {
+        const { name, value } = e.target
+        setloginDets({
+            ...loginDets,
+            [name]: value
+        })
+    }
+
+    const submitHandler =async(e)=>{
+        e.preventDefault();
+        
+        const {  email ,password} = loginDets ;
+        try {
+            if( email && password  ){
+                const res = await login(loginDets) ;
+                // debugger ;
+                alert("success") ;
+                alert(res);
+                // if(res.user.role == "User"){
+                //     console.log("user role ") ;
+                // }
+                // else if(res.user.role =="Controller" ){
+                //     console.log("controller") ;
+                // }
+                // else{
+                //     console.log("admin role") ;
+                // }
+                    
+            } else {
+                alert("invlid input")
+            }
+
+        } catch (error) {
+            alert(error.message) ;
+        }
+    }
+
     return (
         <div style={{width:'100vw',height:'100vh',background:'black',display:'flex',justifyContent: 'center', alignItems: 'center'}}>
-            <Form>
+            <Form onSubmit={submitHandler}>
                 <Col>
                     <Row style={{padding:"2vw"}}>
                         <Form.Group>
@@ -15,12 +59,12 @@ function AdminLogin() {
                     </Row>
                     <Row>
                         <Form.Group className="mb-3" controlId="formGridEmail">
-                            <Form.Control type="email" placeholder="Email" style={{borderColor:'brown',borderRadius:'0px'}} />
+                            <Form.Control name="email" value={loginDets.email} onChange={handleChange} type="email" placeholder="Email" style={{borderColor:'brown',borderRadius:'0px'}} />
                         </Form.Group>
                     </Row>
                     <Row>
                         <Form.Group className="mb-3" controlId="formGridPassword">
-                            <Form.Control type="password" placeholder="Password" style={{borderColor:'brown',borderRadius:'0px'}}/>
+                            <Form.Control name="password" value={loginDets.password} onChange={handleChange} type="password" placeholder="Password" style={{borderColor:'brown',borderRadius:'0px'}}/>
                         </Form.Group>
                     </Row>
                     <Row style={{ padding: '15px' }}>
@@ -36,7 +80,7 @@ function AdminLogin() {
                     <hr style={{color:'grey'}} />
                     <Row style={{textAlign:'center'}}>
                         <Form.Group>
-                            <Form.Label onClick={()=>navigate('/signup')} as="button" style={{ background:'black',color:'grey'}}>Create an Account</Form.Label>
+                            <Form.Label onClick={()=>navigate('/signUp')} as="button" style={{ background:'black',color:'grey'}}>Create an Account</Form.Label>
                         </Form.Group>
                     </Row>
                 </Col>

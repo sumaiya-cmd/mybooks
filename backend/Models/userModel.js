@@ -21,8 +21,8 @@ const userSchema = mongoose.Schema({
     },
     role:{
         type:String ,
-        enum:['user' , 'controller' ,'admin'] ,
-        default:'user'
+        enum:['User' , 'Contributor' ,'Admin'] ,
+        default:'User'
     },
     dateOfBirth: {
         type: Date,

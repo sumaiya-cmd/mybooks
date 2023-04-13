@@ -1,4 +1,3 @@
-import Login from './frontend/admin/Login/Login'
 import Home from './frontend/admin/Login/Home'
 import AdminLogin from './frontend/admin/Login/AdminLogin';
 import SignUp from './frontend/admin/Login/SignUp';
@@ -22,10 +21,7 @@ function App() {
         </Routes>
       </Router>
 
-      {/* <SignUp/> */}
-      {/* <Login/> */}
-      {/* {<Home />} */}
-      {/* <AdminLogin/> */}
+  
     </div>
   );
 }

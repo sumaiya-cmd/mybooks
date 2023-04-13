@@ -5,7 +5,6 @@ export const useStyles=makeStyles({
     
       box:{
         width:'90%',
-        
         padding:10,
         borderRadius:10,
         marginTop:'5%',

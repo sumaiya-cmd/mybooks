@@ -11,7 +11,7 @@ router.route('/delete/:username').get(Deleteuser) ;
 
 router.route('/update/:name').post(Updateuser) ;
 
-router.route('/login').get(loginUser) ;
+router.route('/login').post(loginUser) ;
 
 module.exports =router ;
 
