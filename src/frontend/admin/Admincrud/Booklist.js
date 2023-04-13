@@ -173,13 +173,16 @@ export default function DisplayAllCategory(props){
           <MaterialTable
             title="List of categories"
             columns={[
-              { title: 'User', field: 'username' },
-              { title: 'Email', field: 'email' },
-              { title: 'Password', field: 'password' },
-              { title: 'DOB', field: 'dateOfBirth' },
-              { title: 'Contact', field: 'mobileNo' },
-              { title: 'Role', field: 'role' },
-              // { title: 'DOB', field: 'email' },
+              { title: 'ID', field: 'id' },
+              { title: 'Title', field: 'book_title' },
+              { title: 'Genre', field: 'genre_names' },
+              { title: 'Author', field: 'book_author' },
+              { title: 'Price', field: 'book_price' },
+              { title: 'Language', field: 'language_names' },
+              { title: 'Image', field: 'book_image' },
+              { title: 'Audio', field: 'book_sample' },
+              { title: 'URL', field: 'book_url' },
+              { title: 'Description', field: 'book_description' },
             ]}
             data={category}        
             actions={[
@@ -191,7 +194,7 @@ export default function DisplayAllCategory(props){
                   icon: 'add',
                   tooltip: 'Add Admin',
                   isFreeAction: true,
-                  onClick: (event) =>navigate('/dashboard/add_admin')
+                  onClick: (event) =>navigate('/dashboard/add_book')
                 }
             ]}
           />
@@ -285,7 +288,7 @@ return(
 }
 
 return(
-<div className={classes.dialogContainer}>
+<div className={classes.dialogContainer} style={{width:"100%"}}>
  <div className={classes.dialogBox}>
   
    {displayCategories()}

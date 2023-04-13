@@ -70,6 +70,7 @@ export default function Category(props) {
           <Grid item xs={12}>
             <TextField style={{ backgroundColor:"white"}}
             id="outlined-error"
+            color="error"
             size="small"
               onChange={(event) => setName(event.target.value)}
               label="Name"
@@ -79,6 +80,7 @@ export default function Category(props) {
           <Grid item style={{marginTop:"0"}} xs={12}>
             <TextField style={{ backgroundColor:"white" }}
             id="outlined-error"
+            color="error"
             size="small"
               onChange={(event) => setEmail(event.target.value)}
               label="Email"
@@ -89,6 +91,7 @@ export default function Category(props) {
             <TextField style={{ backgroundColor:"white" }}
             id="outlined-error"
             size="small"
+            color="error"
             onChange={(event) => setPassword(event.target.value)}
               label="Password"
               fullWidth
@@ -98,6 +101,7 @@ export default function Category(props) {
             <TextField style={{ backgroundColor:"white" }}
             id="outlined-error"
             size="small"
+            color="error"
             onChange={(event) => setCpass(event.target.value)}
               label="Confirm Password"
               fullWidth
@@ -107,6 +111,7 @@ export default function Category(props) {
             <TextField style={{ backgroundColor:"white" }}
             id="outlined-error"
             size="small"
+            color="error"
             onChange={(event) => setDob(event.target.value)}
               label="Date of Birth"
               fullWidth
@@ -116,6 +121,7 @@ export default function Category(props) {
             <TextField style={{ backgroundColor:"white"}}
             id="outlined-error"
             size="small"
+            color="error"
             onChange={(event) => setMobileNo(event.target.value)}
               label="Contact"
               fullWidth

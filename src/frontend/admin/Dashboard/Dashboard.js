@@ -10,7 +10,7 @@ import SideBar from './Sidebar';
 import Addmin from "../Admincrud/Category"
 import ListAdmin from "../Admincrud/DisplayAllCategory"
 import Book from "../Admincrud/Bookadd"
-import ListBook from "../Admincrud/DisplayAllCategory"
+import ListBook from "../Admincrud/Booklist"
 import { BrowserRouter as Router ,Route,Routes} from 'react-router-dom'
 // import SubCategory from "../SubCategory/SubCategory";
 // import DisplayAllSubCategory from "../SubCategory/DisplayAllSubCategory";
@@ -61,8 +61,6 @@ export default function Dashboard() {
         <Route element={<ListAdmin/>} path="/listadmin" />
         <Route element={<Book/>} path="/add_book" />
         <Route element={<ListBook/>} path="/listbook" />
- 
- 
         </Routes>
         </Grid>
 
