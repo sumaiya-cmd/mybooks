@@ -108,13 +108,7 @@ export default function Category(props) {
               fullWidth
             />
           </Grid>
-          <Grid item style={{marginTop:"0"}} xs={12}>
-            <TextField style={{ backgroundColor:"white" }}
-            size="small"
-              label="Confirm Password"
-              fullWidth
-            />
-          </Grid>
+
           <Grid item style={{marginTop:"0"}} xs={12}>
             <TextField style={{ backgroundColor:"white" }}
             size="small"

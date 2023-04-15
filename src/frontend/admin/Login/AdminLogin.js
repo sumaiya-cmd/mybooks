@@ -26,18 +26,18 @@ function AdminLogin() {
         try {
             if( email && password  ){
                 const res = await login(loginDets) ;
-                debugger ;
+                // debugger ;
                 alert("success") ;
-                console.log(res) ;
-                // if(res.user.role == "User"){
-                //     console.log("user role ") ;
-                // }
-                // else if(res.user.role =="Controller" ){
-                //     console.log("controller") ;
-                // }
-                // else{
-                //     console.log("admin role") ;
-                // }
+                // console.log(res) ;
+                if(res.data.user.role === "User"){
+                    navigate('/')
+                }
+                else if(res.data.user.role ==="Contributor" ){
+                    navigate('/dashboard')
+                }
+                else{
+                    navigate('/dashboard')
+                }
                     
             } else {
                 alert("invlid input")

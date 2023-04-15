@@ -55,6 +55,14 @@ function SignUp() {
                     </Row>
                     <Row>
                         <Col>
+                        <Form.Group className="mb-3" controlId="formGridPassword">
+                            <Form.Control name="email" value={dets.email} onChange={handleChange} type="email" placeholder="Email" style={{ borderColor: 'brown', borderRadius: '0px' }} />
+                        </Form.Group>
+                        </Col>
+                        
+                    </Row>
+                    <Row>
+                        <Col>
                             <Form.Group className="mb-3" controlId="formGridEmail">
                                 <Form.Control  name="username" value={dets.username} onChange={handleChange} type="text" placeholder="Name" style={{ borderColor: 'brown', borderRadius: '0px' }} />
                             </Form.Group>
@@ -65,18 +73,7 @@ function SignUp() {
                             </Form.Group>
                         </Col>
                     </Row>
-                    <Row>
-                        <Col>
-                        <Form.Group className="mb-3" controlId="formGridPassword">
-                            <Form.Control name="email" value={dets.email} onChange={handleChange} type="email" placeholder="Email" style={{ borderColor: 'brown', borderRadius: '0px' }} />
-                        </Form.Group>
-                        </Col>
-                        <Col>
-                            <Form.Group>
-                                <Form.Control type="password" placeholder="Confirm Password" style={{ borderColor: 'brown', borderRadius: '0px' }} />
-                            </Form.Group>
-                        </Col>
-                    </Row>
+                    
                     <Row>
                         <Col>
                         <Form.Group className="mb-3" controlId="formGridPassword">
