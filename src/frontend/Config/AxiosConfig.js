@@ -5,12 +5,16 @@ const instance = axios.create({
     withCredentials: true,
 });
 
-export const signUp = async(data) =>
+export const signUp = (data) =>
   instance.post("/api/user/create", data);
 
-export const login =async(data)=>{
-    const res =await instance.post("/api/user/login" ,data) ;
-}
+
+export const login =(data)=>
+  instance.post("/api/user/login" ,data) ;
+
+
+export const ShowAll =()=>
+  instance.get("/api/user/show");
 
 export default instance;
 

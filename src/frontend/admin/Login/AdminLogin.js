@@ -26,9 +26,9 @@ function AdminLogin() {
         try {
             if( email && password  ){
                 const res = await login(loginDets) ;
-                // debugger ;
+                debugger ;
                 alert("success") ;
-                alert(res);
+                console.log(res) ;
                 // if(res.user.role == "User"){
                 //     console.log("user role ") ;
                 // }
