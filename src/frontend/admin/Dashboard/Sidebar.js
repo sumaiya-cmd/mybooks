@@ -14,7 +14,7 @@ export default function SideBar() {
   var navigate=useNavigate()
     return(
   <div>
-    <div>
+    <div >
   <React.Fragment >
     <ListItemButton sx={{color:"white"}} onClick={()=>navigate('/dashboard/add_admin')}>
       <ListItemIcon>

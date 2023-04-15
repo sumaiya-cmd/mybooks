@@ -98,7 +98,7 @@ function SignUp() {
                         </Form.Group>
                     </Row>
                     <Row style={{ padding: '0.7vw' }}>
-                        <Button   variant="primary" type="submit" style={{ borderRadius: '0px', borderColor: 'brown', backgroundColor: 'red' }}>
+                        <Button   variant="primary" type="submit" style={{ borderRadius: '0px', borderColor: 'brown', backgroundColor: '#6A4D3A' }}>
                             Sign Up
                         </Button>
                     </Row>

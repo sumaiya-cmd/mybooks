@@ -1,24 +1,26 @@
 import MaterialTable from "@material-table/core";
 import { useState, useEffect } from "react"
 import { Avatar, Button, TextField, Grid } from "@material-ui/core";
-import { useStyles } from "./DisplayAllCategoryCss"
-import {ShowAll} from '../../Config/AxiosConfig'
+import { useStyles } from "./DisplayAllCategoryCss";
+import {ShowAll} from '../../Config/AxiosConfig';
+import Add from '@mui/icons-material/AddCircle';
+import Edit from '@mui/icons-material/Edit';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 
-export default function DisplayAllCategory(props) {
-  var classes = useStyles()
-  var navigate = useNavigate()
-  const [category, setCategory] = useState([])
-  var [icon, setIcon] = useState({ filename: '/assets/defaultcar.png', bytes: '' })
-  var [prevIcon, setPrevIcon] = useState('')
-  var [oldIcon, setOldIcon] = useState('')
-  var [categoryName, setCategoryName] = useState('')
-  var [categoryID, setCategoryID] = useState('')
-  var [buttonStatus, setButtonStatus] = useState({ upload: true })
+export default function DisplayAllCategory(props){
+  var classes=useStyles()
+  var navigate=useNavigate()
+   const [category,setCategory]=useState([])
+   var  [icon,setIcon]=useState({filename:'/images/bookflix.png',bytes:''})
+   var  [prevIcon,setPrevIcon]=useState('')
+   var   [oldIcon,setOldIcon]=useState('')
+ var  [categoryName,setCategoryName]=useState('')
+ var  [categoryID,setCategoryID]=useState('')
+ var  [buttonStatus,setButtonStatus]=useState({upload:true})
 
 
   const [open, setOpen] = useState(false)
@@ -165,37 +167,39 @@ export default function DisplayAllCategory(props) {
 
 
 
-  function displayCategories() {
-    return (
-
-      <MaterialTable
-        title="List of categories"
-        columns={[
-          { title: 'User', field: 'username' },
-          { title: 'Email', field: 'email' },
-          { title: 'DOB', field: 'dateOfBirth' },
-          { title: 'Contact', field: 'mobileNo' },
-          { title: 'Role', field: 'role' },
-        ]}
-        data={category}
-        actions={[
-          {
-            icon: 'edit',
-            tooltip: 'Edit Category',
-            onClick: (event, rowData) => handleSetDataForDialog(rowData)
-          },
-          {
-            icon: 'add',
-            tooltip: 'Add Admin',
-            isFreeAction: true,
-            onClick: (event) => navigate('/dashboard/add_admin')
-          }
-        ]}
-      />
-    )
-  }
-  const handleClose = () => {
-    setOpen(false)
+    function displayCategories() {
+        return (
+ 
+          <MaterialTable
+            title="List of Users"
+            columns={[
+              { title: 'User', field: 'username' },
+              { title: 'Email', field: 'email' },
+              { title: 'Password', field: 'password' },
+              { title: 'DOB', field: 'dateOfBirth' },
+              { title: 'Contact', field: 'mobileNo' },
+              { title: 'Role', field: 'role' },
+              // { title: 'DOB', field: 'email' },
+            ]}
+            data={category}        
+            actions={[
+              {
+                icon: Edit,
+                tooltip: 'Edit User',
+                onClick: (event, rowData) => handleSetDataForDialog(rowData)},
+                {
+                  icon: Add,
+                  tooltip: 'Add Admin',
+                  isFreeAction: true,
+                  onClick: (event) =>navigate('/dashboard/add_admin')
+                }
+            ]}
+          />
+        )
+      }
+const handleClose=()=>
+{
+setOpen(false)
 
   }
 
@@ -280,14 +284,16 @@ export default function DisplayAllCategory(props) {
 
   }
 
-  return (
-    <div className={classes.dialogContainer}>
-      <div className={classes.dialogBox}>
-
-        {displayCategories()}
-      </div>
-      {showDialog()}
-    </div>
+return(
+<div className={classes.box}>
+<div className={classes.dialogContainer}>
+ <div className={classes.dialogBox}>
+  
+   {displayCategories()}
+   </div>
+   {showDialog()}
+</div>    
+</div>    
 
   )
 

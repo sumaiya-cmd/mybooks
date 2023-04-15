@@ -68,7 +68,7 @@ function AdminLogin() {
                         </Form.Group>
                     </Row>
                     <Row style={{ padding: '15px' }}>
-                        <Button variant="primary" type="submit" style={{borderRadius:'0px',borderColor:'brown', backgroundColor:'red'}}>
+                        <Button variant="primary" type="submit" style={{borderRadius:'0px',borderColor:'brown', backgroundColor:'#6A4D3A'}}>
                             Submit
                         </Button>
                     </Row>

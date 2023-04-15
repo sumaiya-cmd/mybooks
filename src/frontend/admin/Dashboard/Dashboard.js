@@ -5,7 +5,7 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import {Avatar,Grid} from '@mui/material';
 import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
+import MenuIcon from '@mui/icons-material/MenuBook';
 import SideBar from './Sidebar';
 import Addmin from "../Admincrud/Category"
 import ListAdmin from "../Admincrud/DisplayAllCategory"
@@ -28,25 +28,25 @@ import { BrowserRouter as Router ,Route,Routes} from 'react-router-dom'
 export default function Dashboard() {
   return (
     <Box>
-      <AppBar position="static" sx={{ backgroundColor:"black" }}>
+      <AppBar position="static" sx={{ background:"rgba(0,0,0,0.8)"}}>
         <Toolbar>
           <IconButton
             size="large"
             edge="start"
             aria-label="menu"
-            sx={{ mr: 2, color:"red" }}
+            sx={{color:"#6A4D3A" }}
           >
             <MenuIcon />
 
           </IconButton>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1,color:"red",fontWeight:"bold" }}>
+          <Typography variant="h5" component="div" sx={{ flexGrow: 2,color:"#6A4D3A",fontWeight:"bolder",paddingLeft:"1%" }}>
             Bookflix
           </Typography>
 
-          <Avatar alt="Remy Sharp" src="/images/b3.png" />
+          <Avatar alt="Bookflix" src="/images/b.png" />
         </Toolbar>
       </AppBar>
-      <Grid variant="secondary" sx={{ background:"black"}} container spacing={2}>
+      <Grid variant="secondary" container spacing={2}>
         <Grid item xs={12} >
         <div style={{paddingTop:10,paddingLeft:15,display:'flex',width:200,justifyContent:'center',alignItems:'center'}}>
           <img src='' style={{width:100}}/>
