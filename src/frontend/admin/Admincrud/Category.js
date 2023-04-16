@@ -3,7 +3,6 @@ import { Grid, TextField, Button, Avatar } from "@mui/material";
 import { useStyles } from "./CategoryCss";
 import ListAltIcon from "@mui/icons-material/ListAlt";
 import { signUp } from "../../Config/AxiosConfig";
-
 // import { ServerURL, postData } from "../../Services/FetchNodeServices";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
@@ -41,7 +40,7 @@ export default function Category(props) {
   }
 
   const clearValues = () => {
-    // setCategoryName("");
+    // setName("");
     // setIcon({ filename: "/assets/defaultcar.png", bytes: "" });
   };
 
