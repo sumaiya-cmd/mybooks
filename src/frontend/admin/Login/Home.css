@@ -4,6 +4,11 @@
     box-sizing: border-box;
 }
 
+img{
+    width:20vw;
+    height: 120px;
+}
+
 .main{
     min-height: 100vh;
     min-width: 100vw;
@@ -16,10 +21,15 @@
 }
 
 .logoimg{
-    width: 90vw;
-    height: 100px;
+    width: 10vw;
+    /* height: 100px; */
     text-align: center;
-    /* background-color: wheat; */
+    color: #6A4D3A;
+    font-size: 500px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    /* background-color: #6A4D3A; */
 }
 
 .head{

@@ -48,9 +48,9 @@ function SignUp() {
         <div style={{ width: '100vw', height: '100vh', background: 'black', display: 'flex', justifyContent: 'center', alignItems: 'center',padding:"10px" }}>
             <Form onSubmit ={submitHandler }>
                 <Col>
-                    <Row style={{padding:"2vw" }}>
+                    <Row style={{padding:"3vw" }}>
                         <Form.Group>
-                            <Image src="/images/bookflix.png" />
+                            <Image src="/images/bookflix.png" style={{height:"100px"}}/>
                         </Form.Group>
                     </Row>
                     <Row>

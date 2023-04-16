@@ -48,9 +48,9 @@ export default function Dashboard() {
       </AppBar>
       <Grid variant="secondary" container spacing={2}>
         <Grid item xs={12} >
-        <div style={{paddingTop:10,paddingLeft:15,display:'flex',width:200,justifyContent:'center',alignItems:'center'}}>
-          <img src='' style={{width:100}}/>
-        </div>
+          {/* <div style={{paddingTop:10,paddingLeft:15,display:'flex',width:200,justifyContent:'center',alignItems:'center'}}>
+            <img src='' style={{width:100}}/>
+          </div> */}
         </Grid>
         <Grid item xs={2}>
          <SideBar/>

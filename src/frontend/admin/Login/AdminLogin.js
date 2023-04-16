@@ -54,7 +54,7 @@ function AdminLogin() {
                 <Col>
                     <Row style={{padding:"2vw"}}>
                         <Form.Group>
-                            <Image src="/images/bookflix.png"  />
+                            <Image src="/images/bookflix.png" style={{height:"100px"}} />
                         </Form.Group>
                     </Row>
                     <Row>
