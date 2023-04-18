@@ -1,7 +1,7 @@
 import "./Slides.css"
 export default function Slide() {
     return (
-        <div class='container-fluid p-5'>
+        <div class='container-fluid p-5 bg-dark'>
             <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-indicators m-2">
                     <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true"></button>

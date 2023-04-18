@@ -11,7 +11,7 @@ export default function Cards() {
                         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                     </div>
                 </div>
-                <a href="#" style={{backgroundColor:"#6A4D3A", border:0,borderRadius:0}} class="btn btn-primary w-100 rounded-bottom">Go somewhere</a>
+                <a href="#" style={{backgroundColor:"#6A4D3A", border:0,borderRadius:0}} class="btn btn-primary w-100 p-2 rounded-bottom">Go somewhere</a>
             </div>
         </div>
     )

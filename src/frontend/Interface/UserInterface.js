@@ -11,12 +11,15 @@ import MenuIcon from '@mui/icons-material/AddShoppingCart';
 import SearchIcon from '@mui/icons-material/Search';
 import { styled, alpha } from '@mui/material/styles';
 import InputBase from '@mui/material/InputBase';
+import { useState,useEffect } from 'react';
 // import SideBar from './Sidebar';
 // import Addmin from "../Admincrud/Category"
 // import ListAdmin from "../Admincrud/DisplayAllCategory"
 // import Book from "../Admincrud/Bookadd"
 // import ListBook from "../Admincrud/Booklist"
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+
+
 const Search = styled('div')(({ theme }) => ({
     position: 'relative',
     borderRadius: theme.shape.borderRadius,
@@ -60,14 +63,34 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     },
 }));
 export default function Dashboard() {
+    const [data, setdata] = useState(null);
+
+    useEffect(() => {
+        if(!data) fetchdata()
+      }, []);
+      
+const fetchdata =(page=1)=>{
+  fetch(`/Data/book.txt`)
+  .then(response => response.json())
+  .then(data => {
+    console.log(data);
+                setdata(data)
+              //   settotalcount(data.total_pages)
+            }
+              );
+}
+
+
+
     return (
-        <Box>
-            <AppBar class="fixed-top"
-            sx={{ 
-                backgroundColor: "black", 
-                // backgroundSize: "cover", 
-                borderBottom: 1, 
-                borderColor: "black" 
+        <Box style={{ backgroundColor: "black",}}>
+            <AppBar
+                sx={{
+                    backgroundColor: "black",
+                    // backgroundSize: "cover", 
+                    borderBottom: 1,
+                    borderColor: "black",
+                    zIndex:"999"
                 }}>
                 <Toolbar>
                     <IconButton
@@ -103,15 +126,18 @@ export default function Dashboard() {
                 </Toolbar>
             </AppBar>
 
-            <Grid variant="secondary" container sx={{ background: "rgb(18,18,18)" }}>
-                <Grid item xs={12} sx={{ margin: "0.5% 0%" }}>
+            <Grid variant="secondary" container>
+                <Grid item xs={12}>
                     <Slide />
                 </Grid>
-                    {/* map function */}
-                <Grid item xs={3}>
-                    {/* <Grid item xs={4}> */}
-                    <Card />
-                    {/* </Grid> */}
+                <Grid item xs={12} sx={{fontSize:"30pt",textAlign:"center",color:"white", fontWeight:"bold",padding:"3vw"}}>
+                    OUR COLLECTION
+                </Grid>
+                {/* map function */}
+                <Grid item xs={12}>
+                    <Grid item xs={3}>
+                        <Card />
+                    </Grid>
                 </Grid>
 
             </Grid>
