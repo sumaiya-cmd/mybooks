@@ -83,7 +83,7 @@ const fetchdata =(page=1)=>{
 
 
     return (
-        <Box style={{ backgroundColor: "black",}}>
+        <Box style={{backgroundColor: "black",}}>
             <AppBar
                 sx={{
                     backgroundColor: "black",
