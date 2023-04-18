@@ -7,8 +7,9 @@ function Home(){
     var navigate=useNavigate();
     return(
         <div className='main'>
-            <div className="logoimg">
-                <img src="/images/bookflix.png" alt="" />
+            <div class="head">
+                <img src="/images/bookflix.png" alt="book" style={{height:"100px"}} />
+                {/* <h1 style={{color:"#6A4D3A",fontFamily:"unset",fontWeight:"400pt"}}>Bookflix</h1> */}
             </div>
             <div className="head">
                 <p>Who's reading ?</p>

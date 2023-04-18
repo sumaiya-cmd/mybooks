@@ -16,6 +16,9 @@ export const login =(data)=>
 export const ShowAll =()=>
   instance.get("/api/user/show");
 
+export const deleteUser =(username)=>
+  instance.get(`/api/user/delete/${username}`);
+
 export default instance;
 
 

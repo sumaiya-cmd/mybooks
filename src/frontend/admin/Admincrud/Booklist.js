@@ -1,7 +1,9 @@
 import MaterialTable from "@material-table/core";
 import {useState,useEffect} from "react"
 import { Avatar,Button,TextField,Grid } from "@material-ui/core";
-import {useStyles} from "./DisplayAllCategoryCss"
+import {useStyles} from "./DisplayAllCategoryCss";
+import Add from '@mui/icons-material/AddBox';
+import Edit from '@mui/icons-material/Edit';
 // import { getData,postData,ServerURL } from "../../Services/FetchNodeServices";
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
@@ -171,7 +173,7 @@ export default function DisplayAllCategory(props){
         return (
  
           <MaterialTable
-            title="List of categories"
+            title="List of Books"
             columns={[
               { title: 'ID', field: 'id' },
               { title: 'Title', field: 'book_title' },
@@ -187,12 +189,12 @@ export default function DisplayAllCategory(props){
             data={category}        
             actions={[
               {
-                icon: 'edit',
-                tooltip: 'Edit Category',
+                icon: Edit,
+                tooltip: 'Edit Book',
                 onClick: (event, rowData) => handleSetDataForDialog(rowData)},
                 {
-                  icon: 'add',
-                  tooltip: 'Add Admin',
+                  icon: Add,
+                  tooltip: 'Add Book',
                   isFreeAction: true,
                   onClick: (event) =>navigate('/dashboard/add_book')
                 }
@@ -288,12 +290,14 @@ return(
 }
 
 return(
-<div className={classes.dialogContainer} style={{width:"100%"}}>
+<div className={classes.box}>
+<div className={classes.dialogContainer}>
  <div className={classes.dialogBox}>
   
    {displayCategories()}
    </div>
    {showDialog()}
+</div>    
 </div>    
 
 )

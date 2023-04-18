@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Grid, TextField, Button, Avatar } from "@mui/material";
 import { useStyles } from "./CategoryCss";
 import ListAltIcon from "@mui/icons-material/ListAlt";
+import Box from '@mui/material/Box';
 
 // import { ServerURL, postData } from "../../Services/FetchNodeServices";
 import Swal from "sweetalert2";
@@ -70,7 +71,8 @@ export default function Category(props) {
           </Grid>
           <Grid item xs={12}>
             <TextField style={{ backgroundColor:"white"}}
-            variant="filled"
+            id="outlined-error"
+            // variant="filled"
             color="error"
             size="small"
               onChange={(event) => setName(event.target.value)}
@@ -81,7 +83,7 @@ export default function Category(props) {
           <Grid item style={{marginTop:"0"}} xs={12}>
             <TextField style={{ backgroundColor:"white" }}
             color="error"
-            variant="filled"
+            // variant="filled"
             size="small"
               onChange={(event) => setEmail(event.target.value)}
               label="Title"
@@ -92,7 +94,7 @@ export default function Category(props) {
             <TextField style={{ backgroundColor:"white" }}
             id="outlined-error"
             color="error"
-            variant="filled"
+            // variant="filled"
             size="small"
             onChange={(event) => setCpass(event.target.value)}
               label="Author"
@@ -102,7 +104,7 @@ export default function Category(props) {
           <Grid item style={{marginTop:"0"}} xs={6}>
             <TextField style={{ backgroundColor:"white" }}
             id="outlined-error"
-            variant="filled"
+            // variant="filled"
             color="error"
             size="small"
             onChange={(event) => setDob(event.target.value)}
@@ -115,7 +117,7 @@ export default function Category(props) {
             id="outlined-error"
             color="error"
 
-            variant="filled"
+            // variant="filled"
             size="small"
             onChange={(event) => setPassword(event.target.value)}
               label="Genre"
@@ -125,7 +127,7 @@ export default function Category(props) {
           <Grid item xs={12}>
             <TextField style={{ backgroundColor:"white"}}
             id="outlined-error"
-            variant="filled"
+            // variant="filled"
             size="small"
             color="error"
 
@@ -138,7 +140,7 @@ export default function Category(props) {
             <TextField style={{ backgroundColor:"white"}}
             id="outlined-error"
             color="error"
-            variant="filled"
+            // variant="filled"
             size="small"
             onChange={(event) => setMobileNo(event.target.value)}
               label="URL"
@@ -147,7 +149,7 @@ export default function Category(props) {
           </Grid>
           <Grid item xs={12}>
             <TextField style={{ backgroundColor:"white"}}
-            variant="filled"
+            // variant="filled"
             color="error"
             size="small"
             onChange={(event) => setMobileNo(event.target.value)}
@@ -155,17 +157,26 @@ export default function Category(props) {
               fullWidth
             />
           </Grid>
-          <Grid item xs={12}>
-            {/* <TextField style={{ backgroundColor:"white"}}
+          {/* <Grid item xs={12}>
+            <TextField style={{ backgroundColor:"white"}}
             id="outlined-error"
             size="small"
             onChange={(event) => setMobileNo(event.target.value)}
               label="Language"
               fullWidth
-            /> */}
-          </Grid>
-          <Grid item sx={{padding:"5%"}} xs={8}>
-            <Button fullWidth variant="outlined" color="error" sx={{padding:"3%"}} component="label">
+            />
+          </Grid> */}
+          <Grid item xs={5}>
+            <Button fullWidth 
+            sx={{padding:"0%",
+            fontSize:"24pt",
+            fontWeight:"bolder",
+            background:"",
+            ':hover': {
+              bgcolor: '#6A4D3A', 
+              color: 'white',
+             },
+            color:"white"}} component="label">
               Upload
               <input
                 hidden
@@ -177,23 +188,40 @@ export default function Category(props) {
               />
             </Button>
           </Grid>
-
-          <Grid item xs={4} className={classes.center}>
+          <Grid item xs={7} className={classes.center}>
             <Avatar
               alt="Category Icon"
               src={icon.filename}
               variant="rounded"
-              sx={{ width: 180, height: 56 }}
+              sx={{ width: 420, height: 56,background:"#000000" }}
             />
           </Grid>
           <Grid item xs={6}>
-            <Button onClick={handleSubmit} variant="contained" color="error" fullWidth>
+            <Button onClick={handleSubmit} 
+            variant="contained" 
+            sx={{
+            backgroundColor:"#6A4D3A",
+            ':hover': {
+            bgcolor: 'black', 
+            color: 'white',
+           },
+          }} 
+           fullWidth>
               Submit
             </Button>
           </Grid>
 
           <Grid item xs={6}>
-            <Button onClick={clearValues} variant="contained" color="error" fullWidth>
+            <Button onClick={clearValues} 
+            variant="contained" 
+            sx={{
+              backgroundColor:"#6A4D3A",
+              ':hover': {
+              bgcolor: 'black', 
+              color: 'white',
+             },
+            }} 
+            fullWidth>
               Reset
             </Button>
           </Grid>

@@ -2,6 +2,7 @@ import { Image, Col, Row, Form, Button } from "react-bootstrap";
 import  {useState} from "react";
 import {useNavigate} from "react-router-dom"
 import { signUp } from '../../Config/AxiosConfig' ;
+import Swal from "sweetalert2";
 
 function SignUp() {
     var navigate=useNavigate()
@@ -31,14 +32,31 @@ function SignUp() {
             if( username && email && password &&role&& dateOfBirth && mobileNo ){
                 const res = await signUp(dets) ;
                 // debugger ;
-                alert(res);
-                alert("success") ;
+                // console.log(res);
+                // alert("success") ;
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: `Hey ${res.data.user.username }`,
+                    showConfirmButton: false,
+                    timer: 1500
+                })
                     
+                navigate('/userinterface') ;
+
             } else {
-                alert("invlid input")
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: `Invalid input`,
+                })
             }
         } catch (error) {
-            alert(error.message) ;
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: `${error.response.data.message}`,
+            })
         }
         
         
@@ -48,9 +66,9 @@ function SignUp() {
         <div style={{ width: '100vw', height: '100vh', background: 'black', display: 'flex', justifyContent: 'center', alignItems: 'center',padding:"10px" }}>
             <Form onSubmit ={submitHandler }>
                 <Col>
-                    <Row style={{padding:"2vw" }}>
+                    <Row style={{padding:"3vw" }}>
                         <Form.Group>
-                            <Image src="/images/bookflix.png" />
+                            <Image src="/images/bookflix.png" style={{height:"100px"}}/>
                         </Form.Group>
                     </Row>
                     <Row>
@@ -95,7 +113,7 @@ function SignUp() {
                         </Form.Group>
                     </Row>
                     <Row style={{ padding: '0.7vw' }}>
-                        <Button   variant="primary" type="submit" style={{ borderRadius: '0px', borderColor: 'brown', backgroundColor: 'red' }}>
+                        <Button   variant="primary" type="submit" style={{ borderRadius: '0px', borderColor: 'brown', backgroundColor: '#6A4D3A' }}>
                             Sign Up
                         </Button>
                     </Row>

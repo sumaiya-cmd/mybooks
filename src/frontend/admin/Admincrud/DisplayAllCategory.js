@@ -1,24 +1,26 @@
 import MaterialTable from "@material-table/core";
 import { useState, useEffect } from "react"
 import { Avatar, Button, TextField, Grid } from "@material-ui/core";
-import { useStyles } from "./DisplayAllCategoryCss"
-import {ShowAll} from '../../Config/AxiosConfig'
+import { useStyles } from "./DisplayAllCategoryCss";
+import {ShowAll ,deleteUser} from '../../Config/AxiosConfig';
+import Add from '@mui/icons-material/AddCircle';
+import Edit from '@mui/icons-material/Edit';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 
-export default function DisplayAllCategory(props) {
-  var classes = useStyles()
-  var navigate = useNavigate()
-  const [category, setCategory] = useState([])
-  var [icon, setIcon] = useState({ filename: '/assets/defaultcar.png', bytes: '' })
-  var [prevIcon, setPrevIcon] = useState('')
-  var [oldIcon, setOldIcon] = useState('')
-  var [categoryName, setCategoryName] = useState('')
-  var [categoryID, setCategoryID] = useState('')
-  var [buttonStatus, setButtonStatus] = useState({ upload: true })
+export default function DisplayAllCategory(props){
+  var classes=useStyles()
+  var navigate=useNavigate()
+  const [category,setCategory]=useState([])
+  var  [icon,setIcon]=useState({filename:'/images/bookflix.png',bytes:''})
+  var  [prevIcon,setPrevIcon]=useState('')
+  var   [oldIcon,setOldIcon]=useState('')
+  var  [username,setusername]=useState('')
+  var  [categoryID,setCategoryID]=useState('')
+  var  [buttonStatus,setButtonStatus]=useState({upload:true})
 
 
   const [open, setOpen] = useState(false)
@@ -26,7 +28,7 @@ export default function DisplayAllCategory(props) {
   const fetchAllCategory = async () => {
     try {
       const res= await ShowAll() ;
-      debugger;
+      // debugger;
       setCategory(res.data.users)
     } catch (error) {
       console.log(error.message);
@@ -37,11 +39,11 @@ export default function DisplayAllCategory(props) {
     fetchAllCategory()
   }, [])
 
-  console.log(category);
 
   const handleSetDataForDialog = (rowData) => {
-    setCategoryID(rowData.categoryid)
-    setCategoryName(rowData.categoryname)
+    console.log(rowData) ;
+    setusername(rowData.username)
+    // setCategoryName(rowData.categoryname)
     setOldIcon(rowData.icon)
     //  setIcon({filename:`${ServerURL}/images/${rowData.icon}`,bytes:''})
     //  setPrevIcon(`${ServerURL}/images/${rowData.icon}`)
@@ -89,40 +91,40 @@ export default function DisplayAllCategory(props) {
 
 
 
-  const handleEditData = async () => {
-    var body = { categoryname: categoryName, categoryid: categoryID }
-    var response
-    // =await postData('category/edit_data',body)
-    if (response.status) {
-      Swal.fire({
+  // const handleEditData = async () => {
+  //   var body = { categoryname: categoryName, categoryid: categoryID }
+  //   var response
+  //   // =await postData('category/edit_data',body)
+  //   if (response.status) {
+  //     Swal.fire({
 
-        icon: 'success',
-        title: 'Done',
-        text: 'Category Updated Successfully'
+  //       icon: 'success',
+  //       title: 'Done',
+  //       text: 'Category Updated Successfully'
 
-      })
+  //     })
 
-    }
-    else {
-      Swal.fire({
+  //   }
+  //   else {
+  //     Swal.fire({
 
-        icon: 'error',
-        title: 'Oops...',
-        text: 'Something went wrong!',
+  //       icon: 'error',
+  //       title: 'Oops...',
+  //       text: 'Something went wrong!',
 
-      })
+  //     })
 
-    }
+  //   }
 
-    setOpen(false)
-    fetchAllCategory()
-  }
+  //   setOpen(false)
+  //   fetchAllCategory()
+  // }
 
-
+  console.log(username) ;
   const handleDelete = async () => {
-    var body = { categoryid: categoryID, oldicon: oldIcon }
+    // var body = { categoryid: categoryID }
     var response
-    // =await postData('category/delete_data',body)
+    =await deleteUser(username);
     if (response.status) {
       Swal.fire({
 
@@ -165,37 +167,39 @@ export default function DisplayAllCategory(props) {
 
 
 
-  function displayCategories() {
-    return (
-
-      <MaterialTable
-        title="List of categories"
-        columns={[
-          { title: 'User', field: 'username' },
-          { title: 'Email', field: 'email' },
-          { title: 'DOB', field: 'dateOfBirth' },
-          { title: 'Contact', field: 'mobileNo' },
-          { title: 'Role', field: 'role' },
-        ]}
-        data={category}
-        actions={[
-          {
-            icon: 'edit',
-            tooltip: 'Edit Category',
-            onClick: (event, rowData) => handleSetDataForDialog(rowData)
-          },
-          {
-            icon: 'add',
-            tooltip: 'Add Admin',
-            isFreeAction: true,
-            onClick: (event) => navigate('/dashboard/add_admin')
-          }
-        ]}
-      />
-    )
-  }
-  const handleClose = () => {
-    setOpen(false)
+    function displayCategories() {
+        return (
+ 
+          <MaterialTable
+            title="List of Users"
+            columns={[
+              { title: 'User', field: 'username' },
+              { title: 'Email', field: 'email' },
+              // { title: 'Password', field: 'password' },
+              { title: 'DOB', field: 'dateOfBirth' },
+              { title: 'Contact', field: 'mobileNo' },
+              { title: 'Role', field: 'role' },
+              // { title: 'DOB', field: 'email' },
+            ]}
+            data={category}        
+            actions={[
+              {
+                icon: Edit,
+                tooltip: 'Edit User',
+                onClick: (event, rowData) => handleSetDataForDialog(rowData)},
+                {
+                  icon: Add,
+                  tooltip: 'Add Admin',
+                  isFreeAction: true,
+                  onClick: (event) =>navigate('/dashboard/add_admin')
+                }
+            ]}
+          />
+        )
+      }
+const handleClose=()=>
+{
+setOpen(false)
 
   }
 
@@ -225,7 +229,7 @@ export default function DisplayAllCategory(props) {
 
                 </Grid>
                 <Grid item xs={12}>
-                  <TextField value={categoryName} onChange={(event) => setCategoryName(event.target.value)} label="Category Name" fullWidth />
+                  <TextField value={username} onChange={(event) => setusername(event.target.value)} label="Category Name" fullWidth />
 
                 </Grid>
                 <Grid item xs={6} >
@@ -242,13 +246,13 @@ export default function DisplayAllCategory(props) {
                     sx={{ width: 120, height: 56 }}
                   />
                 </Grid>
-                <Grid item xs={6}>
+                {/* <Grid item xs={6}>
                   <Button onClick={handleEditData} variant="contained" fullWidth>
                     Edit Data
                   </Button>
 
 
-                </Grid>
+                </Grid> */}
 
                 <Grid item xs={6}>
 
@@ -280,14 +284,16 @@ export default function DisplayAllCategory(props) {
 
   }
 
-  return (
-    <div className={classes.dialogContainer}>
-      <div className={classes.dialogBox}>
-
-        {displayCategories()}
-      </div>
-      {showDialog()}
-    </div>
+return(
+<div className={classes.box}>
+<div className={classes.dialogContainer}>
+ <div className={classes.dialogBox}>
+  
+   {displayCategories()}
+   </div>
+   {showDialog()}
+</div>    
+</div>    
 
   )
 
