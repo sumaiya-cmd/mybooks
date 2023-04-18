@@ -1,7 +1,7 @@
 import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Slide from "./Slides";
-import Image from "material-ui-image";
+import Card from "./Cards";
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
@@ -20,9 +20,9 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 const Search = styled('div')(({ theme }) => ({
     position: 'relative',
     borderRadius: theme.shape.borderRadius,
-    backgroundColor: "#000000",
+    backgroundColor: "#fff",
     '&:hover': {
-        backgroundColor: "transparent",
+        backgroundColor: "#fff",
     },
     marginLeft: 0,
     width: '100%',
@@ -36,6 +36,7 @@ const SearchIconWrapper = styled('div')(({ theme }) => ({
     padding: theme.spacing(0, 2),
     height: '100%',
     position: 'absolute',
+    color: "#000000",
     pointerEvents: 'none',
     display: 'flex',
     alignItems: 'center',
@@ -43,7 +44,7 @@ const SearchIconWrapper = styled('div')(({ theme }) => ({
 }));
 
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
-    color: 'white',
+    color: 'black',
     '& .MuiInputBase-input': {
         padding: theme.spacing(1, 1, 1, 0),
         // vertical padding + font size from searchIcon
@@ -61,7 +62,13 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 export default function Dashboard() {
     return (
         <Box>
-            <AppBar position="static" sx={{ backgroundImage: `url("https://68.media.tumblr.com/00017a0fa421177a169f926b7bda9cfb/tumblr_njq93rYxyQ1u17yx1o1_500.gif")`, backgroundSize: "cover" }}>
+            <AppBar class="fixed-top"
+            sx={{ 
+                backgroundColor: "black", 
+                // backgroundSize: "cover", 
+                borderBottom: 1, 
+                borderColor: "black" 
+                }}>
                 <Toolbar>
                     <IconButton
                         size="large"
@@ -96,10 +103,17 @@ export default function Dashboard() {
                 </Toolbar>
             </AppBar>
 
-            <Grid variant="secondary" container>
-        <Grid item xs={12} sx={{margin:"0.5% 0%"}}>
-              <Slide/>
-            </Grid>
+            <Grid variant="secondary" container sx={{ background: "rgb(18,18,18)" }}>
+                <Grid item xs={12} sx={{ margin: "0.5% 0%" }}>
+                    <Slide />
+                </Grid>
+                    {/* map function */}
+                <Grid item xs={3}>
+                    {/* <Grid item xs={4}> */}
+                    <Card />
+                    {/* </Grid> */}
+                </Grid>
+
             </Grid>
         </Box>
     );
