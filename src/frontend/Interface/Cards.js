@@ -1,18 +1,59 @@
+import "./Card.css"
+import { useState,useEffect } from "react";
+
+const useAudio = url => {
+    const [audio] = useState(new Audio(url));
+    const [playing, setPlaying] = useState(false);
+  
+    const toggle = () => setPlaying(!playing);
+  
+    useEffect(() => {
+        playing ? audio.play() : audio.pause();
+      },
+      [playing]
+    );
+  
+    useEffect(() => {
+      audio.addEventListener('ended', () => setPlaying(false));
+      return () => {
+        audio.removeEventListener('ended', () => setPlaying(false));
+      };
+    }, []);
+  
+    return [playing, toggle];
+  };
+
 export default function Cards(props) {
+    
+      
+    const [playing, toggle] = useAudio(props.item.book_sample);
+
     return (
-        <div class="p-4">
-            <div class="bg-dark  rounded-top">
-                <div class="card w-100 p-3 pt-1  bg-dark">
-                    <div class="p-1 m-5">
-                        <img src="/images/b.png" class="card-img-top rounded-circle" style={{ height: "25vh" }} alt="..." />
+        <div className="box">
+            <div class="wrapper">
+                <div class="product-img">
+                    <img src={props.item.book_image} height="420" width="327" />
+                </div>
+                <div class="product-info">
+                    <div class="product-text">
+                        <h1>{props.item.book_title}</h1>
+                        <h2>by {props.item.book_author}
+                        {
+                            Array.apply(null, { length: props.item.book_rating }).map((e, i) => (
+                                <span class="fa fa-star checked"></span>
+                                
+                              ))
+                        }
+                        </h2>
+                        <p>{props.item.book_description.substring(0, 250)}.... </p>
+                        
                     </div>
-                    <div class="card-body text-white">
-                        <h5 class="card-title">{props.item.book_title}</h5>
-                        <p class="card-text">{props.item.book_description.substring(0, 100) + "..." }</p>
+                    <div class="product-price-btn">
+                        <button onClick={toggle} id="but1" type="button">{playing ?<i class="ri-pause-circle-fill"></i> : <i class="ri-play-circle-fill"></i>}</button>
+                        <button id="but2" type="button">buy now</button>
                     </div>
                 </div>
-                <a href="#" style={{backgroundColor:"#6A4D3A", border:0,borderRadius:0}} class="btn btn-primary w-100 p-2 rounded-bottom">Go somewhere</a>
             </div>
         </div>
-        
-    )}
+    )
+}
