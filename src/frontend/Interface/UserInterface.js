@@ -2,7 +2,6 @@ import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Slide from "./Slides";
 import Card from "./Cards";
-import Image from "material-ui-image";
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
@@ -12,19 +11,22 @@ import MenuIcon from '@mui/icons-material/AddShoppingCart';
 import SearchIcon from '@mui/icons-material/Search';
 import { styled, alpha } from '@mui/material/styles';
 import InputBase from '@mui/material/InputBase';
+import { useState, useEffect } from 'react';
 // import SideBar from './Sidebar';
 // import Addmin from "../Admincrud/Category"
 // import ListAdmin from "../Admincrud/DisplayAllCategory"
 // import Book from "../Admincrud/Bookadd"
 // import ListBook from "../Admincrud/Booklist"
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+
+
 const Search = styled('div')(({ theme }) => ({
     position: 'relative',
     borderRadius: theme.shape.borderRadius,
-    backgroundColor: "#000000",
-    // '&:hover': {
-    //     backgroundColor: "transparent",
-    // },
+    backgroundColor: "#fff",
+    '&:hover': {
+        backgroundColor: "#fff",
+    },
     marginLeft: 0,
     width: '100%',
     [theme.breakpoints.up('sm')]: {
@@ -37,6 +39,7 @@ const SearchIconWrapper = styled('div')(({ theme }) => ({
     padding: theme.spacing(0, 2),
     height: '100%',
     position: 'absolute',
+    color: "#000000",
     pointerEvents: 'none',
     display: 'flex',
     alignItems: 'center',
@@ -44,7 +47,7 @@ const SearchIconWrapper = styled('div')(({ theme }) => ({
 }));
 
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
-    color: 'white',
+    color: 'black',
     '& .MuiInputBase-input': {
         padding: theme.spacing(1, 1, 1, 0),
         // vertical padding + font size from searchIcon
@@ -60,9 +63,34 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
     },
 }));
 export default function Dashboard() {
+    const [data, setdata] = useState(null);
+
+    useEffect(() => {
+        if (!data) fetchdata()
+    }, []);
+
+    const fetchdata = () => {
+        fetch(`/Data/book.txt`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                setdata(data)
+            }
+            );
+    }
+
+
+
     return (
-        <Box>
-            <AppBar position="static" sx={{ backgroundImage: `url("https://68.media.tumblr.com/00017a0fa421177a169f926b7bda9cfb/tumblr_njq93rYxyQ1u17yx1o1_500.gif")`, backgroundSize: "cover" }}>
+        <Box style={{ backgroundColor: "black", }}>
+            <AppBar
+                sx={{
+                    backgroundColor: "black",
+                    // backgroundSize: "cover", 
+                    borderBottom: 1,
+                    borderColor: "black",
+                    zIndex: "999"
+                }}>
                 <Toolbar>
                     <IconButton
                         size="large"
@@ -98,11 +126,21 @@ export default function Dashboard() {
             </AppBar>
 
             <Grid variant="secondary" container>
-                <Grid item xs={12} sx={{margin:"0.5% 0%"}}>
-                    <Slide/>
+                <Grid item xs={12}>
+                    <Slide />
                 </Grid>
-                <Grid item xs={12} sx={{margin:"0.5% 0%"}}>
-                    <Card/>
+                <Grid item xs={12} sx={{ fontSize: "30pt", textAlign: "center", color: "white", fontWeight: "bold", padding: "3vw" }}>
+                    OUR COLLECTION
+                </Grid>
+                <Grid item xs={12}>
+                    {(!data) ? <h1>LOADING...</h1 > :
+                        data.map((e) => {
+                            return <Grid item xs={3}>
+                                        <Card item={e} />
+                                    </Grid>
+                        })
+                    }
+
                 </Grid>
             </Grid>
         </Box>
