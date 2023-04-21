@@ -7,11 +7,13 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import { Avatar, Grid } from '@mui/material';
 import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/AddShoppingCart';
+import MenuIcon from '@mui/icons-material/ShoppingBag';
 import SearchIcon from '@mui/icons-material/Search';
 import { styled, alpha } from '@mui/material/styles';
 import InputBase from '@mui/material/InputBase';
 import { useState, useEffect } from 'react';
+import BookDetails from './BookDetails';
+import { useNavigate } from 'react-router-dom';
 // import SideBar from './Sidebar';
 // import Addmin from "../Admincrud/Category"
 // import ListAdmin from "../Admincrud/DisplayAllCategory"
@@ -62,7 +64,8 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
         },
     },
 }));
-export default function Dashboard() {
+export function CardBody() {
+
     const [data, setdata] = useState(null);
 
     useEffect(() => {
@@ -78,6 +81,43 @@ export default function Dashboard() {
             }
             );
     }
+    return (
+        <div>
+            <div class="row">
+                {
+                    (!data) ? <h1>LOADING...</h1 > :
+                        data.map((e) => {
+                            return <div class="col-lg-4">
+                                <Card item={e} />
+                            </div>
+                        })
+                }
+
+            </div>
+        </div>
+    )
+}
+export function Body() {
+    return (
+        <div>
+            <Grid item xs={12}>
+                <Slide />
+            </Grid>
+            <Grid item xs={12} sx={{ fontSize: "30pt", textAlign: "center", color: "white", fontWeight: "bold", paddingTop: "3vw" }}>
+                OUR COLLECTION
+            </Grid>
+            <Grid item xs={12}>
+                <div class="container p-3">
+                <CardBody/>
+                </div>
+            </Grid>
+        </div>
+    )
+}
+
+export default function Dashboard() {
+    // var navigate = useNavigate()
+
 
 
 
@@ -100,7 +140,6 @@ export default function Dashboard() {
                     >
                         <Avatar alt="Bookflix" src="/images/B2.png" />
                     </IconButton>
-
                     <Typography variant="h4" component="div" sx={{ flexGrow: 1, color: "#6A4D3A", fontWeight: "bolder", paddingLeft: "2%" }}>
                         Bookflix
                     </Typography>
@@ -121,26 +160,15 @@ export default function Dashboard() {
                     >
                         <MenuIcon />
                     </IconButton>
-
                 </Toolbar>
             </AppBar>
 
-            <Grid variant="secondary" container>
-                <Grid item xs={12}>
-                    <Slide />
-                </Grid>
-                <Grid item xs={12} sx={{ fontSize: "30pt", textAlign: "center", color: "white", fontWeight: "bold", padding: "3vw" }}>
-                    OUR COLLECTION
-                </Grid>
-                <Grid item xs={12}>
-                    {(!data) ? <h1>LOADING...</h1 > :
-                        data.map((e) => {
-                            return <Grid item xs={3}>
-                                        <Card item={e} />
-                                    </Grid>
-                        })
-                    }
-
+            <Grid item xs={12} class="bg-dark">
+                <Grid variant="secondary" class="container" container>
+                    <Routes>
+                        <Route element={<Body />} path="/" />
+                        <Route element={<BookDetails />} path="/bookdetails" />
+                    </Routes>
                 </Grid>
             </Grid>
         </Box>
