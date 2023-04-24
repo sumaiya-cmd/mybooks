@@ -70,11 +70,11 @@ export default function BookDetails() {
 
                         <div class="col-lg-12 text-start p-5" style={{ height: "30vh" }}>
                             <div class="px-0 rounded-5">
-                                <button class="bg-info m-2 py-2 justify-content-around border-0 w-50 rounded-5" onClick={toggle} id="but1" type="button"><h3 class="fw-bold">Play clip</h3>  {playing ?<PauseIcon fontSize="large"/> : <PlayArrowIcon fontSize="large"/>}</button>
+                                <button class="bg-info m-2 py-2 justify-content-around border-0 w-50 rounded-5" onClick={toggle} id="but1" type="button"><span class="fw-bold">Play clip</span>  {playing ?<PauseIcon fontSize="large"/> : <PlayArrowIcon fontSize="large"/>}</button>
                             </div>
 
                             <div class="px-0 rounded-5">
-                                <button class="bg-success m-2 py-2 border-0 w-50 justify-content-around rounded-5"  id="but1" type="button"><h3 class="fw-bold">Add to cart</h3><Icon fontSize="large"/></button>
+                                <button class="bg-success m-2 py-2 pe-3 border-0 w-50 justify-content-around rounded-5"  id="but2" type="button"><span class="fw-bold">Add cart</span><Icon fontSize="medium"/></button>
                             </div>
                         </div>
 
@@ -115,16 +115,16 @@ export default function BookDetails() {
                             {book.book_description}
                         </div>
                     </div>
-                    <div class="col-lg-12 py-5">
-                        <h1 class="text-center text-uppercase p-3">
+                </div>
+            </div>
+                    <div class="container">
+                        <h1 class="text-center text-white text-uppercase">
                             You Can Also Explore
                         </h1>
                         <div>
                             <CardBody/>
                         </div>
                     </div>
-                </div>
-            </div>
         </div>
     )
 }

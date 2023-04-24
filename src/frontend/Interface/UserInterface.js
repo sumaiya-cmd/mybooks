@@ -13,6 +13,7 @@ import { styled, alpha } from '@mui/material/styles';
 import InputBase from '@mui/material/InputBase';
 import { useState, useEffect } from 'react';
 import BookDetails from './BookDetails';
+import AddToCart from './AddCart';
 import { useNavigate } from 'react-router-dom';
 // import SideBar from './Sidebar';
 // import Addmin from "../Admincrud/Category"
@@ -116,11 +117,7 @@ export function Body() {
 }
 
 export default function Dashboard() {
-    // var navigate = useNavigate()
-
-
-
-
+    var navigate = useNavigate()
     return (
         <Box style={{ backgroundColor: "black", }}>
             <AppBar
@@ -157,6 +154,7 @@ export default function Dashboard() {
                         edge="start"
                         aria-label="menu"
                         sx={{ color: "#fff", marginLeft: "2%", background: "#6A4D3A" }}
+                        onClick={()=>navigate('/userinterface/mycart')}
                     >
                         <MenuIcon />
                     </IconButton>
@@ -168,6 +166,7 @@ export default function Dashboard() {
                     <Routes>
                         <Route element={<Body />} path="/" />
                         <Route element={<BookDetails />} path="/bookdetails" />
+                        <Route element={<AddToCart />} path="/mycart" />
                     </Routes>
                 </Grid>
             </Grid>

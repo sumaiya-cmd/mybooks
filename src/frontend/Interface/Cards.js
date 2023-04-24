@@ -1,7 +1,9 @@
 import "./Card.css"
 import { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
-
+import PlayArrowIcon from '@mui/icons-material/PlayArrow';
+import PauseIcon from '@mui/icons-material/Pause';
+import Icon from '@mui/icons-material/ShoppingBag';
 
 const useAudio = url => {
   const [audio] = useState(new Audio(url));
@@ -40,7 +42,7 @@ export default function Cards(props) {
                 </div>
                 <div class="wsk-cp-text">
                   <div class="category">
-                    <span>Ethnic</span>
+                    <span onClick={toggle}>{playing ? <PauseIcon/> : <PlayArrowIcon />}</span>
                   </div>
                   <div class="title-product">
                     <h3>{props.item.book_title}</h3>
@@ -49,8 +51,8 @@ export default function Cards(props) {
                     <p>{props.item.book_description.substring(0,70)}...</p>
                   </div>
                   <div class="card-footer">
-                    <div class="wcf-left"><span class="price">Rp500.000</span></div>
-                    <div class="wcf-right"><a href="#" class="buy-btn"><i class="zmdi zmdi-shopping-basket"></i></a></div>
+                    <div class="wcf-left"><span class="price">$20.00</span></div>
+                    <div class="wcf-right"><a  onClick={() => navigate('/userinterface/bookdetails', { state: { book: props.item } })} class="buy-btn"><Icon /></a></div>
                   </div>
                 </div>
               </div>
@@ -58,6 +60,5 @@ export default function Cards(props) {
           </div>
         </div>
       </div>
-
   )
 }
