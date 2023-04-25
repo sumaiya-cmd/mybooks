@@ -1,12 +1,20 @@
 import { useNavigate } from 'react-router-dom';
 import Dashboard from './UserInterface';
+import { deletebook } from "../Store/Actions/CartActions";
 import { useSelector ,useDispatch } from "react-redux";
+// import { Delete } from '@mui/icons-material';
 
 
 export default function AddToCart() {
   var navigate = useNavigate()
+  const dispatch= useDispatch() ;
   const{productDetails }=useSelector(state =>state.product) ;
   console.log(productDetails);
+
+  const DeleteItem =(id)=>{
+      dispatch(deletebook(id)) ;
+  }
+
   return (
     <div class="pt-5">
       <section class="" style={{ backgroundColor: "#eee",height:"auto" }}>
@@ -79,12 +87,12 @@ export default function AddToCart() {
                             </div>
                             <div class="d-flex flex-row align-items-center pt-3">
                               <div style={{ width: "50px" }}>
-                                <h5 class="fw-normal mb-0">2</h5>
+                                {/* <h5 class="fw-normal mb-0">2</h5> */}
                               </div>
                               <div style={{ width: "90px" }}>
                                 <h5 class="mb-0">${item.book_price}</h5>
                               </div>
-                              <a href="#!" style={{ color: "#cecece" }}><i class="fas fa-trash-alt"></i></a>
+                              <a href="#!" onClick={()=>DeleteItem(item.id)} style={{ color: "#cecece" }}><i class="fas fa-trash-alt"></i></a>
                             </div>
                           </div>
                         </div>

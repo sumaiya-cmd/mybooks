@@ -18,3 +18,21 @@ export const addbook = (data) => (dispatch , getstate) =>{
     }
 
 }
+
+export const deletebook =(id)=> (dispatch , getstate) =>{
+    try {
+        
+        let b = getstate().product.productDetails.filter((e )=>{
+            return e.id !== id
+        })
+        localStorage.setItem('books', JSON.stringify(b));
+
+        dispatch({
+            type:REMOVE_FROM_CART,
+            payload : b
+        })
+
+    } catch (error) {
+        console.log(error)
+    }
+}
