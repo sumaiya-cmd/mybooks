@@ -6,7 +6,7 @@ import './App.css';
 import AdminLogins from './frontend/admin/Dashboard/AdminLogin';
 import Dashboard from './frontend/admin/Dashboard/Dashboard';
 import { BrowserRouter as Router,Routes,Route } from 'react-router-dom';
-
+import BookDetails from "./frontend/Interface/BookDetails";
 
 function App() {
   return (
@@ -19,6 +19,7 @@ function App() {
           <Route element={<SignUp/>} path="/signup" />
           <Route element={<Dashboard/>} path="/dashboard/*" />
           <Route element={<UserInterface/>} path="/userinterface/*" />
+          <Route element={<BookDetails/>} path="/bookdetails" />
           <Route element={<AdminLogins/>} path="/admin" />
         </Routes>
       </Router>

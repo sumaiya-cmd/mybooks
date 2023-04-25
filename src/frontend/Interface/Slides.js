@@ -1,7 +1,7 @@
 import "./Slides.css"
 export default function Slide() {
     return (
-        <div class='container-fluid p-5 bg-dark'>
+        <div class='container-fluid p-5 w-100 bg-dark'>
             <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-indicators m-2">
                     <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true"></button>
@@ -25,7 +25,7 @@ export default function Slide() {
                             </div>
                         </div>
                     </div>
-                    <div class="carousel-item ">
+                    <div class="carousel-item">
                         <div class="row">
                             <div class="col-lg-6 p-5">
                                 <img src="https://readingwhale.com/wp-content/uploads/2017/07/all-the-light-we-cannot-see.jpg" class="w-100 rounded" style={{ minHeight: "300px", objectFit: "cover" }} alt="pop-1" />
@@ -34,7 +34,7 @@ export default function Slide() {
                                 <h5 class='p-5 text-light fs-1' style={{fontFamily :"Playfair Display"}}>The Light We Cannot See <br />
                                 <span  style={{fontFamily:"Playfair Display" , fontSize:"20px" ,opacity:"0.5"}}>by Anthony Doer</span>
                                 </h5>
-                                <p class='fs-5 fst-italic text-light'style={{fontFamily:"Oregano"}} >When Marie Laure goes blind, aged six, her father builds her a model of their Paris neighbourhood, so she can memorize it with her fingers and then navigate the real streets. But when the Germans occupy Paris, father and daughter flee to Saint-Malo on the Brittany coast, where Marie-Laures agoraphobic great uncle lives in a tall, narrow house by the sea wall. In another world in Germany, an orphan boy, Werner, is enchanted by a crude radio. He becomes a master at building and fixing radios, a talent ultimately makes him a highly specialized tracker of the Resistance..</p>
+                                <p class='fs-5 fst-italic text-light'style={{fontFamily:"Oregano"}} >When Marie Laure goes blind, aged six, her father builds her a model of their Paris neighbourhood, so she can memorize it with her fingers and then navigate the real streets..</p>
                             </div>
                         </div>
                     </div>
@@ -48,7 +48,7 @@ export default function Slide() {
                                     <h5 class='p-5 text-light fs-1'style={{fontFamily :"Playfair Display"}} >verity <br />
                                     <span  style={{fontFamily:"Playfair Display" , fontSize:"20px" ,opacity:"0.5"}}>by Colleen Hoover</span>
                                     </h5>
-                                    <p class='fs-5 fst-italic text-light'>Verity focuses on the life of Lowen Ashleigh, a young writer living in New York City struggling for money and not really living the life she envisioned. One day she bumps into a man who will change her life forever in more ways than one.</p>
+                                    <p class='fs-5 fst-italic text-light' style={{fontFamily:"Oregano"}}>Verity focuses on the life of Lowen Ashleigh, a young writer living in New York City struggling for money and not really living the life she envisioned. One day she bumps into a man who will change her life forever in more ways than one.</p>
                                 </div>
                             </div>
                         </div>
