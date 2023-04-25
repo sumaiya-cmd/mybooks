@@ -1,0 +1,7 @@
+export const ADD_TO_CART ='[ADD_TO_CART]' ;
+export const REMOVE_FROM_CART ='[REMOVE_FROM_CART]' ;
+export const UPDATE_CART_QUANTITY ='[UPDATE_CART_QUANTITY]' ;
+
+export const ADMIN_REQUEST ='[ADMIN_REQUEST]'
+export const ADMIN_SUCCESS ='[ADMIN_SUCCESS]'
+export const ADMIN_FAIL ='[ADMIN_FAIL]'

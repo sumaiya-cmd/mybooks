@@ -51,7 +51,7 @@ export default function Cards(props) {
                     <p>{props.item.book_description.substring(0,70)}...</p>
                   </div>
                   <div class="card-footer">
-                    <div class="wcf-left"><span class="price">$500.000</span></div>
+                    <div class="wcf-left"><span class="price">$20.00</span></div>
                     <div class="wcf-right"><a  onClick={() => navigate('/userinterface/bookdetails', { state: { book: props.item } })} class="buy-btn"><Icon /></a></div>
                   </div>
                 </div>

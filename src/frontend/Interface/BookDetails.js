@@ -1,5 +1,7 @@
 import { useLocation } from 'react-router-dom';
 import { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { addbook } from "../Store/Actions/CartActions";
 import { Rating } from '@mui/material';
 import Icon from '@mui/icons-material/ShoppingBag';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
@@ -32,6 +34,7 @@ const useAudio = url => {
 };
 
 export default function BookDetails() {
+    const dispatch = useDispatch() ;
     const location = useLocation();
     // Accessing query parameters
     const queryParams = new URLSearchParams(location.search);
@@ -41,9 +44,13 @@ export default function BookDetails() {
     const book = location.state?.book; // Access the 'book' state
 
     // Rest of your code
-    console.log("book:", book);
+    // console.log("book:", book);
 
     const [playing, toggle] = useAudio(book.book_sample);
+
+    const addProduct = () =>{
+        dispatch(addbook(book)) ;
+    }
 
     return (
         <div class="bg-dark container-fluid px-5">
@@ -74,7 +81,7 @@ export default function BookDetails() {
                             </div>
 
                             <div class="px-0 rounded-5">
-                                <button class="bg-success m-2 py-2 pe-3 border-0 w-50 justify-content-around rounded-5"  id="but2" type="button"><span class="fw-bold">Add cart</span><Icon fontSize="medium"/></button>
+                                <button class="bg-success m-2 py-2 pe-3 border-0 w-50 justify-content-around rounded-5" onClick={addProduct} id="but2" type="button" ><span class="fw-bold">Add cart</span><Icon fontSize="medium"/></button>
                             </div>
                         </div>
 
